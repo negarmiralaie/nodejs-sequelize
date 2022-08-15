@@ -6,3 +6,14 @@
 
 > Sequelize is an ORM(Object Relational Mapper).
 > ORM is a technique that allows you query and manipulate data from a database in an object-oriented way. For example, you can represent a table as an object in sequelize and use that object's methods to interact with tha table.
+
+> Sequelize is a module so we must install it:
+```bash
+npm install sequelize
+```
+> Since sequelize supports different databases, we must install the appropriate driver for our desired database. Driver for postgres is pg and for mysql is mysql. So we are going to install mysql2.
+```bash 
+npm install mysql2
+```
+
+> A schema = database
