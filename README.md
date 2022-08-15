@@ -1,3 +1,8 @@
 # sequelize
 
 ![photo_2022-08-15_17-06-39](https://user-images.githubusercontent.com/81822434/184636125-18f57215-4f9e-4475-836b-587fbe961e85.jpg)
+
+> Sequelize supports many database engines including MySQL, PostgreSQL, SQLite, Microsoft SQL Server, and MariahDB.
+
+> Sequelize is an ORM(Object Relational Mapper).
+> ORM is a technique that allows you query and manipulate data from a database in an object-oriented way. For example, you can represent a table as an object in sequelize and use that object's methods to interact with tha table.
