@@ -6,3 +6,5 @@
 
 > Sequelize is an ORM(Object Relational Mapper).
 > ORM is a technique that allows you query and manipulate data from a database in an object-oriented way. For example, you can represent a table as an object in sequelize and use that object's methods to interact with tha table.
+
+![image](https://user-images.githubusercontent.com/81822434/184667487-130714b4-6011-43e9-a553-ca588e302ef7.png)
