@@ -4,7 +4,8 @@
   "description": "![photo_2022-08-15_17-06-39](https://user-images.githubusercontent.com/81822434/184636125-18f57215-4f9e-4475-836b-587fbe961e85.jpg)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,13 @@
   },
   "homepage": "https://github.com/negarmiralaie/sequelize#readme",
   "dependencies": {
+    "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }

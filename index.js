@@ -1,13 +1,16 @@
+const express = require('express');
+// const exphbs = require('express-handlebars');
+// const bodyParser = require('body-parser');
+const path = require('path');
 const Sequelize = require('sequelize');
-// We do not need to require mysql2 bc it is done automatically internally by sequelize.
+const PORT = process.env.PORT || 5000;
+const app = express();
 
 // To connect to the database that we made in mysql workbench, We need to create a new instance of sequelize and
 // pass in the database name of db, username, and password, options object.
 // For creating an instance of Sequelize we should say: new Constructor -> Constructor is Sequelize
-const sequelize = new Sequelize('new_schema', 'root', 'KrystalMrMin107', {
-    // dialect: 'mysql',
+const sequelize = new Sequelize('code-gig', 'root', 'root', {
     dialect: 'postgres',
-    port: 3306,
 });
 
 // To check if we are successfully connected to the database, we can use the method sequelize.authenticate()
@@ -22,6 +25,7 @@ async function connectDb() {
 }
 
 connectDb();
+
 
 // We use define to represent a table.
 // By default every column has : default: null so you must set it if you want it to be otherwise
@@ -65,4 +69,8 @@ User.sync({ force: true }).then(() => {
     timestamps: false,
 });
 
-console.log('Connection to db was successful.');
+app.get('/', (req, res) => {
+   res,rend('Home page~'); 
+});
+
+app.listen(PORT, () => { console.log(`Server started at ${PORT}`) });
