@@ -6,18 +6,14 @@ const Sequelize = require('sequelize');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-// To connect to the database that we made in mysql workbench, We need to create a new instance of sequelize and
-// pass in the database name of db, username, and password, options object.
-// For creating an instance of Sequelize we should say: new Constructor -> Constructor is Sequelize
-const sequelize = new Sequelize('code-gig', 'root', 'root', {
-    dialect: 'postgres',
-});
+// Dtaabase
+const database = require('./config/database');
 
 // To check if we are successfully connected to the database, we can use the method sequelize.authenticate()
 // This function returns a promise.
 async function connectDb() {
     try {
-        await sequelize.authenticate();
+        await database.authenticate();
         console.log('Connection has been established successfully.');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
@@ -29,7 +25,7 @@ connectDb();
 
 // We use define to represent a table.
 // By default every column has : default: null so you must set it if you want it to be otherwise
-const User = sequelize.define('user', {
+const User = database.define('user', {
 // Primary key: a unique id to identify a record in a table. It is automatically set by sequelize
 // In case we wanted to create primary key as we want
     user_id: {
