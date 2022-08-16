@@ -11,6 +11,8 @@ const database = require('./config/database');
 const testDatabaseConnection = require('./config/test_database_connection');
 testDatabaseConnection();
 
+// useres routes
+app.use('/users', require('./routes/users'));
 // // Model synchronization: Inserts a table that you defined with sequelize into your database.
 // // Sync is another way of writing sql
 // // Note that sync method creates a table only if it does not exist. WE can turn it off by passing force: true -> Drops previous table and creates a new one
