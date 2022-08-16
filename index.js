@@ -22,4 +22,34 @@ async function connectDb() {
 
 connectDb();
 
+// We use define to represent a table.
+// By default every column has : default: null so you must set it if you want it to be otherwise
+const User = sequelize.define('user', {
+    username: {
+        type: Sequelize.DataTypes.STRING,
+        allowNull: false
+    },
+    password: {
+        type: Sequelize.DataTypes.STRING
+    },
+    age: {
+        type: Sequelize.DataTypes.INTEGER,
+        default: 21,
+    },
+
+});
+
+// Model synchronization: Inserts a table that you defined with sequelize into your database.
+// Sync is another way of writing sql
+User.sync().thne(() => {
+    console.log('Table and model is ssynced successfully.');
+}).catch((error) => {
+    console.log('Error syncing the table and model.');
+},
+// Note that sequelize automatically plurizations name to be Users so Users will be the name of the table.
+// B setting freezeTableName to true, we say we do not want the name of the table to be pluralized.
+{
+    freezeTableName: true,
+});
+
 console.log('Connection to db was successful.');
