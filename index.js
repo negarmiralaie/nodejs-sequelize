@@ -11,10 +11,15 @@ const sequelize = new Sequelize('new_schema', 'root', 'KrystalMrMin107', {
 
 // To check if we are successfully connected to the database, we can use the method sequelize.authenticate()
 // This function returns a promise.
-sequelize.authenticate().then(() => {
-    console.log('Connection has been established successfully.');
-}).catch((error) => {
-    console.log('error connecting to db', error);
-});
+async function connectDb() {
+    try {
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
+    } catch (error) {
+        console.error('Unable to connect to the database:', error);
+    }
+}
+
+connectDb();
 
 console.log('Connection to db was successful.');
