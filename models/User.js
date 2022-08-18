@@ -22,8 +22,9 @@ const User = database.define('user', {
     },
     age: {
         type: DataTypes.INTEGER,
-        default: 21,
+        defaultValue: 21,
     },
+
 });
 
 // Model synchronization: Inserts a table that you defined with sequelize into your database.
@@ -31,13 +32,7 @@ const User = database.define('user', {
 // Note that sync method creates a table only if it does not exist. WE can turn it off by passing force: true -> Drops previous table and creates a new one
 // Or by giving alter: true rather than force: true, It won't drop the table
 User.sync({ force: true }).then(() => {
-    // Makes sure that this table is  updated
-    // We use build mathod to add data 
-    const user = User.build({ username: 'John', password : '123', age: '21'});
-    user.username = user.username + '1';
-    return user.save();
-    // below line can be used instead of 3 above lines
-    // return User.create({ username: 'John', password: '123', age: ''})
+    console.log('Table and model is ssynced successfully.');
 }).catch((error) => {
     console.log('Error syncing the table and model.');
 },
