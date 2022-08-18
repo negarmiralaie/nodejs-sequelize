@@ -15,7 +15,10 @@ const User = database.define('user', {
     },
     username: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            len: [4, 6]
+        }
     },
     password: {
         type: DataTypes.STRING
@@ -31,7 +34,7 @@ const User = database.define('user', {
 // Sync is another way of writing sql
 // Note that sync method creates a table only if it does not exist. WE can turn it off by passing force: true -> Drops previous table and creates a new one
 // Or by giving alter: true rather than force: true, It won't drop the table
-User.sync({ force: true }).then(() => {
+User.sync({ alter: true }).then(() => {
     console.log('Table and model is ssynced successfully.');
 }).catch((error) => {
     console.log('Error syncing the table and model.');

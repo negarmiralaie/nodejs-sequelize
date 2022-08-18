@@ -41,12 +41,16 @@ router.post('/create', async (req, res) => {
       // Decreases age by 2 -> age = age -2
       // user.decrement({ age: 2 });
 
-      // bulkCreate is used to create multiple users at once, it takes an array
-      // This method returns an array of objects so we can't use .toJson() on it so we should use foreach and then .toJson() on each object
       return UserModel.bulkCreate([
          { username: 'user1', password: 'pass1', age: 21 },
          { username: 'user2', password: 'pass2', age: 22 },
-      ])
+      ],
+            // bulkCreate is used to create multiple users at once, it takes an array
+      // This method returns an array of objects so we can't use .toJson() on it so we should use foreach and then .toJson() on each object
+      // Note that bulkCreate ignores validation for inputs!! but create gives us validationError and take care of validation
+      // So by passing validation: true, we tell it to not ignore validation -> but it decreases validation performance and makes your app slower!!!
+      { validate: true}
+      )
       return res.status(200).json(user);
     } catch(error) {
         console.log('error', error);
