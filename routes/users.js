@@ -6,7 +6,15 @@ const createError = require('http-errors');
 
 router.get('/get-all', async (req, res) => {
    try{
-        const allUsers = await UserModel.findAll();
+      // findAll returns an array 
+      const allUsers = await UserModel.findAll();
+      // We can set attributes to get only certain columns
+      // const allUsers = await UserModel.findAll({ attributes: ['username', 'password'] });
+      // When we want to return username as myName and password as pwd: -> AS
+      // const allUsers = await UserModel.findAll({ attributes: [['username', 'myName'], ['password', 'pwd']] });
+      // Aggregation -> sequelize.fn
+      const allUsers = await UserModel.findAll({ attributes: [database.fn()] });
+
         console.log('allUsers', allUsers);
         return res.json(allUsers);
    } catch(error) {
