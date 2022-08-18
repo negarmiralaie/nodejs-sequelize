@@ -27,7 +27,7 @@ router.get('/get-all', async (req, res) => {
         //const allUsers = await UserModel.findAll({ limit: 2 });
         // order by is used to sort the results in descending or ascending order
         // order by ages desecnding
-        //   const allUsers = await UserModel.findAll({ order: [['age', 'DESC']] });
+        // const allUsers = await UserModel.findAll({ order: [['age', 'DESC']] });
         // group by is used to group rows that have same values into summery rows, it works similar to order except that it does not take direction as the last argument(ASC or DESC)
         //  It takes a string directly to the group key, group key is mostly used with aggregate functions
         // Here we want to add all the ages of the usernames that are the same -> we will get a username and the sum of the ages with that username
@@ -98,26 +98,20 @@ router.post('/create', async (req, res) => {
     }
 });
 
+// update query
+// where age is 25, change username to pizza
+// Username.update({ username: pizza}, {where: {age: 25}});
+// Do that where the age is greater than 25
+Username.update({ username: pizza}, {where: {age: {[Op.gt]: 25}}});
+
+
+
 router.delete('/delete', async (req, res) => {
    try{
 
    } catch(error) {
 
    }
-});
-
-router.get('/search', async (req, res) => {
-    const { term } = req.query;
-    try{
-        const users = await UserModel.findAll({
-            where: {
-                name: {}
-            }
-        });
-    } catch(error) {
-        console.log('error', error);
-        return res.status(500).json(error);
-    }
 });
 
 module.exports = router;
