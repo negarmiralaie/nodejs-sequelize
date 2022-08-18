@@ -21,3 +21,6 @@ npm install mysql2
 ![image](https://user-images.githubusercontent.com/81822434/184667487-130714b4-6011-43e9-a553-ca588e302ef7.png)
 > Options in sync method
 ![image](https://user-images.githubusercontent.com/81822434/184940641-6a3122df-5520-4773-99bc-a1d13ecdaf24.png)
+
+![image](https://user-images.githubusercontent.com/81822434/185436439-47d227f4-10bb-4313-8b2d-2f6a775adfdc.png)
+
