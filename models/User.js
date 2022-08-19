@@ -21,7 +21,7 @@ const User = database.define('user', {
         }
     },
     password: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING 
     },
     age: {
         type: DataTypes.INTEGER,
