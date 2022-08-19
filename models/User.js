@@ -27,7 +27,6 @@ const User = database.define('user', {
         type: DataTypes.INTEGER,
         defaultValue: 21,
     },
-
 });
 
 // Model synchronization: Inserts a table that you defined with sequelize into your database.

@@ -102,15 +102,23 @@ router.post('/create', async (req, res) => {
 // where age is 25, change username to pizza
 // Username.update({ username: pizza}, {where: {age: 25}});
 // Do that where the age is greater than 25
-Username.update({ username: pizza}, {where: {age: {[Op.gt]: 25}}});
+// UserModel.update({ username: pizza}, {where: {age: {[Op.gt]: 25}}});
+// Returns data which has the maximum age
+// UserModel.max('age')
+// UserModel.sum('age');
+// UserModel.sum('age', { where: {age: 21}});
 
 
 
 router.delete('/delete', async (req, res) => {
    try{
 
+      // Delete all users that have age 25
+      return UserModel.destroy({ where: { age: 45 } });
+      // Deletes all the records in the table but not the table itself
+      // return UserModel.destroy({ truncate: true });
    } catch(error) {
-
+      console.log('error', error);
    }
 });
 
