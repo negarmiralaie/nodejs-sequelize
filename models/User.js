@@ -18,6 +18,11 @@ const User = database.define('user', {
         allowNull: false,
         validate: {
             len: [4, 6]
+        },
+        get() {
+            // get the raw value from current user -> select
+            const rawValue = this.getDataValue('username');
+            
         }
     },
     password: {
@@ -47,6 +52,9 @@ User.sync({ alter: true }).then(() => {
     timestamps: false,
 });
 
+// Getters: e.x: we want to display username is all caps everytime we retrieve it from a database
+// Setters: e.x: we want to hash the password before storing it to database 
+// If we say user.username function getter will be called
 module.exports = User;
 
 
