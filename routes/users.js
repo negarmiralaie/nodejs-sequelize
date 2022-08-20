@@ -21,31 +21,48 @@ router.get('/get-all', async (req, res) => {
         //here we want to get everything where the age is 45
         //const allUsers = await UserModel.findAll({ where: { age: 45 } });
         // Get username where age is 45
-        //const allUsers = await UserModel.findAll({ attributes: ['username'], where: { age: 45 } });
-        //const allUsers = await UserModel.findAll({ where: { age: 45, username: John } });
-        //limit is used to limit the number of rows returned
-        //const allUsers = await UserModel.findAll({ limit: 2 });
-        // order by is used to sort the results in descending or ascending order
-        // order by ages desecnding
-        // const allUsers = await UserModel.findAll({ order: [['age', 'DESC']] });
-        // group by is used to group rows that have same values into summery rows, it works similar to order except that it does not take direction as the last argument(ASC or DESC)
-        //  It takes a string directly to the group key, group key is mostly used with aggregate functions
-        // Here we want to add all the ages of the usernames that are the same -> we will get a username and the sum of the ages with that username
-        // const allUsers = await UserModel.findAll({ attribute : ['username', 
-        //         [database.fn('SUM', database.col('age')), 'sum_age']], group: ['username'] });
-        // Operators in sequelized are used by op
-        // return results that age is 45 or username is John
-        // const allUsers = await UserModel.findAll({ where: {[Op.or]: {username: 'John', age: 45}} });
-        // const allUsers = await UserModel.findAll({ where: {username: 'John', age: 45}});
-        // const allUsers = await UserModel.findAll({ where: {[Op.and]: {username: 'John', age: 45}} });
-        // We can get the same result without using Op.and
-        // const allUsers = await UserModel.findAll({ where: {username: 'John', age: 45}});
-        // Al users that their age is greater than 45
-        // const allUsers = await UserModel.findAll({ where: {age: {[Op.gt]: 45}} });
-        // All users that their age is less than 45 or their age is null
-        // const allUsers = await UserModel.findAll({ where: {age: {[Op.or]: { [Op.lt]: 45, [Op.eq]: null}}} });
-        // All users that their username's length is 6
-        // const allUsers = await UserModel.findAll({ where: database.where(database.fn('char_length', database.col('username')), 6)  });
+         //const allUsers = await UserModel.findAll({ attributes: ['username'], where: { age: 45 } });
+         //const allUsers = await UserModel.findAll({ where: { age: 45, username: John } });
+         //limit is used to limit the number of rows returned
+         //const allUsers = await UserModel.findAll({ limit: 2 });
+         // order by is used to sort the results in descending or ascending order
+         // order by ages desecnding
+         // const allUsers = await UserModel.findAll({ order: [['age', 'DESC']] });
+         // group by is used to group rows that have same values into summery rows, it works similar to order except that it does not take direction as the last argument(ASC or DESC)
+         //  It takes a string directly to the group key, group key is mostly used with aggregate functions
+         // Here we want to add all the ages of the usernames that are the same -> we will get a username and the sum of the ages with that username
+         // const allUsers = await UserModel.findAll({ attribute : ['username', 
+         //         [database.fn('SUM', database.col('age')), 'sum_age']], group: ['username'] });
+         // Operators in sequelized are used by op
+         // return results that age is 45 or username is John
+         // const allUsers = await UserModel.findAll({ where: {[Op.or]: {username: 'John', age: 45}} });
+         // const allUsers = await UserModel.findAll({ where: {username: 'John', age: 45}});
+         // const allUsers = await UserModel.findAll({ where: {[Op.and]: {username: 'John', age: 45}} });
+         // We can get the same result without using Op.and
+         // const allUsers = await UserModel.findAll({ where: {username: 'John', age: 45}});
+         // Al users that their age is greater than 45
+         // const allUsers = await UserModel.findAll({ where: {age: {[Op.gt]: 45}} });
+         // All users that their age is less than 45 or their age is null
+         // const allUsers = await UserModel.findAll({ where: {age: {[Op.or]: { [Op.lt]: 45, [Op.eq]: null}}} });
+         // All users that their username's length is 6
+         //  const allUsers = await UserModel.findAll({ where: database.where(database.fn('char_length', database.col('username')), 6)  });
+         // Pssing raw: true is the same as using toJson()
+         //   const allUsers = await UserModel.findAll({ raw: true });
+         // const allUsers = await UserModel.findAll({ where: { age: 25 }, raw: true });
+         // find by primary key
+         // const allUsers = await UserModel.findByPk(28);
+         // Returns the first row if we do not pass a condition
+         // const allUsers = await UserModel.findOne();
+         // Returns the first one that matches the condition -> it actually uses limit 1
+         // const allUsers = await UserModel.findOne({ where: { age: {[Op.or]: 25, [Op.eq]: null} } });
+         // If it doesnot findone it will create one
+         // const allUsers = await UserModel.findOrCreate({ where: { username: 'John' } });
+         // If a user with given username was not found create one with this username and given age. but if a user with given username existed it may not hae given age and will be returned and does not create new user
+         // If such user existed, it will return the user and a false value, and if it did not exist, it will return a true value
+         // const allUsers = await UserModel.findOrCreate({ where: { username: 'John' }, defaults: { age: 26} });
+         // It finds everything that matches given query and also returns the number of rows that matched the query
+         // const allUsers = await UserModel.findAndCountAll({ where: { username: 'John' }, raw: true });
+
 
         console.log('allUsers', allUsers);
         return res.json(allUsers);
