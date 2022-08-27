@@ -121,7 +121,12 @@ router.delete('/delete', async (req, res) => {
 });
 
 // & const data = UserModel.findOne();
-console.log(data.username);   // To display getter's impression
-
+// console.log(data.username);   // To display getter's impression
+// & const data = UserModel.create({ username: 'name', password: 'hfsheroe4tgg'});
+// console.log(data.password);  // To display setter
+// & const data = UserModel.create({ username: 'name', password: 'hfsheroe4tgg', description: 'My long long looooong desciption'});
+// console.log(data.password);  // To display setter and getter -> compression and uncompression
+// & const data = UserModel.findOne({ where: {username: 'wire'} });
+// console.log(data.aboutUser);  // To display setter and getter -> compression and uncompression
 
 module.exports = router;
