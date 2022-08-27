@@ -18,10 +18,20 @@ const User = database.define('user', {
         allowNull: false,
         validate: {
             len: [4, 6]
-        }
+        },
+        // Manipulation in getters does not affect how data is stored. It only affects how data is displayed initially. So if you check it in db our data is the same.
+        get() {
+            // Is used for accessing current value, it's better to use it only in getters and outside, it's better to use dot
+            const rawValue = this.getDataValue('username');
+            return rawValue.toUppercase();
+        },
     },
     password: {
-        type: DataTypes.STRING 
+        type: DataTypes.STRING,
+        // We manipulate password and then save it into db, so data will be changed in db
+        set(value) {
+            this.setDataValue('password', value);
+        }
     },
     age: {
         type: DataTypes.INTEGER,

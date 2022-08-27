@@ -24,3 +24,6 @@ npm install mysql2
 
 ![image](https://user-images.githubusercontent.com/81822434/185436439-47d227f4-10bb-4313-8b2d-2f6a775adfdc.png)
 
+> Don't store encrypted password bc they are easily decrypted if someone has a hold of the key used to encrypt the password. So we must hash passwords bc they are irreversible. The only way to discover what the original password of a hash is by hashing passwords to see if you get the same hash. However there are rainbow tables that have a lot of hashes of common passwords so this way is not completely safe. So we must also add salt to our password. Salt is a randomly generated password that we append to our hash that makes it harder to decrypt.
+
+![image](https://user-images.githubusercontent.com/81822434/187032351-164717f9-43ed-4488-b568-cfa55d9fede0.png)

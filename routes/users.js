@@ -108,8 +108,6 @@ router.post('/create', async (req, res) => {
 // & UserModel.sum('age');
 // & UserModel.sum('age', { where: {age: 21}});
 
-
-
 router.delete('/delete', async (req, res) => {
    try{
 
@@ -121,5 +119,9 @@ router.delete('/delete', async (req, res) => {
       console.log('error', error);
    }
 });
+
+// & const data = UserModel.findOne();
+console.log(data.username);   // To display getter's impression
+
 
 module.exports = router;
