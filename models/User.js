@@ -20,8 +20,11 @@ const User = database.define('user', {
     username: {
         type: DataTypes.STRING,
         allowNull: false,
+        // We can't have repeated emails
+        unique: true,
         validate: {
-            len: [4, 6]
+            len: [4, 6],
+            isIn: ['aaa', 'bbbb']
         },
         // Manipulation in getters does not affect how data is stored. It only affects how data is displayed initially. So if you check it in db our data is the same.
         get() {
@@ -41,9 +44,32 @@ const User = database.define('user', {
             this.setDataValue('password', hashedPassword);
         }
     },
+    email: {
+        type: DataTypes.STRING,
+        unique: true,
+        validate: {
+            isEmail: true,
+            isIn: {
+                args: ['aaa@a.com', 'bbbb@b.com'],
+                msg: 'The provided email must be one of the followings...'
+            },
+            // custom validator
+            myEmailValidator(value) {
+                if (value === null) throw new Error('please enter an email');
+            }
+        }
+    },
     age: {
         type: DataTypes.INTEGER,
         defaultValue: 21,
+        validate: {
+            isOldEnough(value) {
+                if (value <21) throw new Error('Too young!!');
+            },
+            isNumeric: {
+                msg: 'You must provide a number'
+            }
+        }
     },
     description: {
         type: DataTypes.STRING,
@@ -93,6 +119,13 @@ User.sync({
     // Sequelize automatically adds createdAt and updatedAT.
     // WE can turn that off using timestamps: false
     timestamps: false,
+    // Model-wide validation: this is fired after all column-wide validations are passed
+    validate: {
+        usernamePassMatch() {
+            if (this.username === this.password) throw new Error ('password and username can not be the same')
+            return 'Passed all!!';
+        }
+    }
 });
 
 module.exports = User;

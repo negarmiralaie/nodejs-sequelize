@@ -129,4 +129,30 @@ router.delete('/delete', async (req, res) => {
 // & const data = UserModel.findOne({ where: {username: 'wire'} });
 // console.log(data.aboutUser);  // To display setter and getter -> compression and uncompression
 
+
+// Constaints: rules defined in sql level. Even defining a data type is a constraint because it says that this column must be a string.
+// Other constaints are like uniqe constraint which ensures that we do not get a repeated email. If a repeated one is recieved, an error will be thrown by db to js.
+// & const data = UserModel.create({ username: 'name', password: 'hfsheroe4tgg'});
+// & const data = UserModel.create({ username: 'name', password: 'hfsheroe4tgg'});
+// To get repeated username
+// console.log(data.toJson());
+// We will get an error: Duplicate entry 
+
+// & const data = UserModel.create({ username: 'name', password: 'hfsheroe4tgg', email: 'hello'});
+// To get validation error for email
+
+// & const data = UserModel.build({ username: 'name', password: 'hfsheroe4tgg'});
+// const a = data.validate();
+// Another way to get validation error for email
+
+// & const data = UserModel.create({ username: 'name', password: 'hfsheroe4tgg', email: 'hello', age: 11});
+// To get custom validation error for age
+
+// & const data = UserModel.create({ username: 'name', password: 'hfsheroe4tgg', email: 'hello'});
+// To get validation error for username: isIn
+
+// & const data = UserModel.create({ username: 'name', password: 'name'});
+// & const data = UserModel.create({ username: 'name', password: 'name'});
+// To get validation error for model-wide validation
+
 module.exports = router;
