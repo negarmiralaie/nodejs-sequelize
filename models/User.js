@@ -5,6 +5,7 @@ const {
 const database = require('../config/database');
 const bcrypt = 'bcrypt';
 const zlib = require('zlib');
+const sequelize = require('sequelize');
 
 // const Gig = database.define('gig', {});
 // We use define to represent a table.
@@ -102,14 +103,40 @@ const User = database.define('user', {
     }
 });
 
+const loggerFunc = () => {
+    console.log("Successfully running");
+}
+
 // Model synchronization: Inserts a table that you defined with sequelize into your database.
 // Sync is another way of writing sql
 // Note that sync method creates a table only if it does not exist. WE can turn it off by passing force: true -> Drops previous table and creates a new one
 // Or by giving alter: true rather than force: true, It won't drop the table
-User.sync({
-    alter: true
-}).then(() => {
+User.sync({ alter: true }).then(() => {
+
+    // This is another way to write queries
+    // This function returns an array containing result of the query and an object containig metadata
+    // return Sequelize.query('UPDATE user SET age = 54 WHERE username = john')
+    // Below one won't return metadata bc we specified type
+    // return Sequelize.query(`SELECT * FROM user`, { type: database.QueryTypes.SELECT })
+    // return Sequelize.query(`UPDATE user SET age = 100 WHERE username = 'john `, { type: database.QueryTypes.UPDATE });
+    // return Sequelize.query(`SELECT * FROM user`, { model: User });
+    // return Sequelize.query(`SELECT * FROM user`, { logging: loggerFunc });
+    
+
+    // return Sequelize.query(`UPDATE user SET age = 100 WHERE username = 'john `, { type: database.QueryTypes.UPDATE });
+
+
+    // return User.create({
+    //     username: 'username1',
+    //     password: 'popopefr'
+    // });
     console.log('Table and model is ssynced successfully.');
+// }).then((data) => {
+//     console.log(data);
+// })
+}).then((data) => {
+    [result, metadata] = data;
+    console.log(data);
 }).catch((error) => {
     console.log('Error syncing the table and model.');
 }, {
