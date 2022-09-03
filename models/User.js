@@ -121,7 +121,23 @@ User.sync({ alter: true }).then(() => {
     // return Sequelize.query(`UPDATE user SET age = 100 WHERE username = 'john `, { type: database.QueryTypes.UPDATE });
     // return Sequelize.query(`SELECT * FROM user`, { model: User });
     // return Sequelize.query(`SELECT * FROM user`, { logging: loggerFunc });
-    
+
+    // Replacements are placeholders are for dynamic information to be passed 
+    // Replacements are used to avoid sql injection -> adds a slash before quotes so that they do not look like and of the string
+    // return Sequelize.query(`SELECT * FROM user WHERE username = username AND password = ?`, { replacements: [username, password] });
+
+    // return Sequelize.query(`SELECT * FROM user WHERE username = :username`, { replacements: { username: 'john' }, plain: true });
+    // username must be in the given array
+    // return Sequelize.query(`SELECT * FROM user WHERE username IN(:username)`, { replacements: { username: ['mike', 'john'] }});
+    // where username starts with joand ends with whatever
+    // return Sequelize.query(`SELECT * FROM user WHERE username LIKE :username`, { replacements: { username: 'jo%' }});
+
+    // Bind parameters are a stronger way to avoid sql injection -> even if user enters a sql statement, it will be treated as data and will not be executed.
+    // return Sequelize.query(`SELECT * FROM user WHERE username = $1 AND password = $2`, { bind: [ username, password ], plain: true });
+
+
+    return Sequelize.query(`SELECT * FROM user WHERE username = $username AND password = $password `, { bind: { username, password }, plain: true });
+
 
     // return Sequelize.query(`UPDATE user SET age = 100 WHERE username = 'john `, { type: database.QueryTypes.UPDATE });
 

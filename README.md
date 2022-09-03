@@ -33,3 +33,7 @@ npm install mysql2
 ![image](https://user-images.githubusercontent.com/81822434/187033656-0e66efc8-7a65-4844-8098-b8cdd75a3ee1.png)
 
 ![image](https://user-images.githubusercontent.com/81822434/187053145-0ac456f4-b079-4116-ac3a-a7d483d42484.png)
+
+![image](https://user-images.githubusercontent.com/81822434/188166408-bcea70d9-e7e7-4691-b3bf-90533a8131d4.png)
+
+![image](https://user-images.githubusercontent.com/81822434/188166470-d6595e65-7c2b-4da3-8cf2-ad3e78a29c08.png)

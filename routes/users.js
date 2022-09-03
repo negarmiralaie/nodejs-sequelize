@@ -155,4 +155,7 @@ router.delete('/delete', async (req, res) => {
 // & const data = UserModel.create({ username: 'name', password: 'name'});
 // To get validation error for model-wide validation
 
+
+
+
 module.exports = router;
