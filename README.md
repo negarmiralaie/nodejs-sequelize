@@ -45,4 +45,26 @@ npm install mysql2
 
 ![image](https://user-images.githubusercontent.com/81822434/190731286-8d2b2a49-dd61-4bfc-beda-8ab250486e5e.png)
 
+![image](https://user-images.githubusercontent.com/81822434/190820220-34ede687-9ca3-4b89-8340-2fc23dca3ce4.png)
+
+
+![image](https://user-images.githubusercontent.com/81822434/190732469-2eb4468d-1e63-4c16-a17e-d581a98930c3.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190801267-41cc2777-8901-43a5-9342-f8b2fe749b71.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190801475-b414f6ff-0251-4a74-9272-000536ffe9db.png)
+
+
 > Capital can not exist without a country
+
+![image](https://user-images.githubusercontent.com/81822434/190828832-b3552c60-3c26-445f-a4a2-cbd9a882fe08.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190829264-4b220ca9-966d-47f0-a3e0-46901beba9b1.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190829409-01bf64d1-cad3-4970-b76e-214dec28f70c.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190829427-6fe32e82-8f43-41bf-86cc-b6ea09eb951b.png)
+
+### We must add belongs to as well as has one so that we can  be able to use utility methods on both country and capital
+
+![image](https://user-images.githubusercontent.com/81822434/190829829-8472932d-3c72-4eda-a79b-ca3b96673bfe.png)
