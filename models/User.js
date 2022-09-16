@@ -109,7 +109,7 @@ const loggerFunc = () => {
 
 // Model synchronization: Inserts a table that you defined with sequelize into your database.
 // Sync is another way of writing sql
-// Note that sync method creates a table only if it does not exist. WE can turn it off by passing force: true -> Drops previous table and creates a new one
+// Note that sync method creates a table only if it does not exist. We can turn it off by passing force: true -> Drops previous table and creates a new one
 // Or by giving alter: true rather than force: true, It won't drop the table
 User.sync({ alter: true }).then(() => {
 
@@ -157,10 +157,10 @@ User.sync({ alter: true }).then(() => {
     console.log('Error syncing the table and model.');
 }, {
     // Note that sequelize automatically plurizations name to be Users so Users will be the name of the table.
-    // B setting freezeTableName to true, we say we do not want the name of the table to be pluralized.
+    // By setting freezeTableName to true, we say we do not want the name of the table to be pluralized.
     freezeTableName: true,
     // Sequelize automatically adds createdAt and updatedAT.
-    // WE can turn that off using timestamps: false
+    // We can turn that off using timestamps: false
     timestamps: false,
     // Model-wide validation: this is fired after all column-wide validations are passed
     validate: {
@@ -170,5 +170,17 @@ User.sync({ alter: true }).then(() => {
         }
     }
 });
+
+
+
+
+
+// #One to one:
+// Each product has a comment and each comment belongs to one product
+// This way, a productId will automatically be assigned to each comment which is a foreign key indicating which user does this comment belongs to
+// But Product will not have a foreign key 
+Product.hasOne(Comment);
+Comment.belongsTo(Product);
+
 
 module.exports = User;
