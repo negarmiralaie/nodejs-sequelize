@@ -175,12 +175,38 @@ User.sync({ alter: true }).then(() => {
 
 
 
-// #One to one:
+// One to one:
 // Each product has a comment and each comment belongs to one product
 // This way, a productId will automatically be assigned to each comment which is a foreign key indicating which user does this comment belongs to
-// But Product will not have a foreign key 
-Product.hasOne(Comment);
+// But Product will not have a foreign key  
+// Here we added some options for the automatically populated foreignkey
+Product.hasOne(Comment, {
+    foreignKey: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        // Here we can change name of the foreignkey
+        name: 'product_id'
+    }
+});
 Comment.belongsTo(Product);
 
+
+
+// One to many:
+Product.hasMany(Tweet, {
+    foreignKey: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        // Here we can change name of the foreignkey
+        name: 'product_id'
+    }
+});
+Tweet.belongsTo(Product);
+
+
+
+// Many to many
+// For many to many you need to create another table which is for storing keys
+// Remember that for One to many and many to one you do not need to create another table
 
 module.exports = User;
