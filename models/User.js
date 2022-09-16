@@ -111,6 +111,7 @@ const loggerFunc = () => {
 // Sync is another way of writing sql
 // Note that sync method creates a table only if it does not exist. We can turn it off by passing force: true -> Drops previous table and creates a new one
 // Or by giving alter: true rather than force: true, It won't drop the table
+// Note that if we have defined multiple schemas in one file, we can use database.sync instead of User.sync to sync all schemas at once
 User.sync({ alter: true }).then(() => {
 
     // This is another way to write queries

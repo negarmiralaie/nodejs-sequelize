@@ -37,3 +37,12 @@ npm install mysql2
 ![image](https://user-images.githubusercontent.com/81822434/188166408-bcea70d9-e7e7-4691-b3bf-90533a8131d4.png)
 
 ![image](https://user-images.githubusercontent.com/81822434/188166470-d6595e65-7c2b-4da3-8cf2-ad3e78a29c08.png)
+
+### Associations
+![image](https://user-images.githubusercontent.com/81822434/190729782-71b4de29-876e-4e46-870e-86e1afd6ef5d.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190730612-28e2dbff-3551-42fb-aa0d-d4b3e73d48b9.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190731286-8d2b2a49-dd61-4bfc-beda-8ab250486e5e.png)
+
+> Capital can not exist without a country
