@@ -68,3 +68,7 @@ npm install mysql2
 ### We must add belongs to as well as has one so that we can  be able to use utility methods on both country and capital
 
 ![image](https://user-images.githubusercontent.com/81822434/190829829-8472932d-3c72-4eda-a79b-ca3b96673bfe.png)
+
+### If we delete a coutry from country table, we can use onDelete to delete all capitals related to this country from capital table -> bc it is one to one, only one row in child table(capital) gets deleted.
+
+### We can also use onUpdate -> if the primary key is updated the corresponding value in child table will be updated as well.
