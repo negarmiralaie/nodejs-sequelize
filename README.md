@@ -72,3 +72,45 @@ npm install mysql2
 ### If we delete a coutry from country table, we can use onDelete to delete all capitals related to this country from capital table -> bc it is one to one, only one row in child table(capital) gets deleted.
 
 ### We can also use onUpdate -> if the primary key is updated the corresponding value in child table will be updated as well.
+
+> Note that foreign keys in child table must be unique bc it is a one to one relation.
+
+![image](https://user-images.githubusercontent.com/81822434/190831927-b8c55206-01c6-4eee-a708-60cf2a36b515.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190832040-61b56ae3-89e7-4883-ab18-b91b07081a01.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190855518-8d1b1a2b-538b-4344-9ada-d4d88a722fbf.png)
+
+
+### One to many:
+![image](https://user-images.githubusercontent.com/81822434/190855566-5a53ba25-bf71-48b8-b86d-2e318d750e69.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190855597-2ad26149-dc43-44c9-aa52-ee97938f64d8.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190856386-ee0702b9-b33a-4747-be43-f56923e08325.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190856433-f26160a7-9601-4a0b-ba77-8e1db06dc103.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190856522-bbb1217b-0b71-4ef7-890e-47c385fa5123.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190856730-39218975-2855-4ea8-91ec-8fe351cc2087.png)
+
+
+## Many to many:
+
+![image](https://user-images.githubusercontent.com/81822434/190856821-4f2976b3-3bbc-4916-8251-7b099b505717.png)
+
+![image](https://user-images.githubusercontent.com/81822434/190856844-bc82eb9d-a660-44c2-b6a3-ddd82a3e0e6c.png)
+
+> In many to many we need to pass 'through' to tell that we want a junction table called 'customerproduct'
+
+![image](https://user-images.githubusercontent.com/81822434/190857032-c7896c39-61cf-4a88-ba87-62737dd60284.png)
+
+
+> You can even create the junction model yourself.
+
+
+![image](https://user-images.githubusercontent.com/81822434/190882549-3a08dfee-9ada-463b-902b-93ab319fa839.png)
+
+
+![image](https://user-images.githubusercontent.com/81822434/190882532-79725fa6-46c0-447b-a749-a4a1ccd8803a.png)
